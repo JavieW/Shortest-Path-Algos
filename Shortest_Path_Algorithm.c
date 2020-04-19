@@ -55,7 +55,7 @@ int dijkstra(int src, int dst, int A[SIZE][SIZE]) {
  */
 int BF(int src, int dst, int A[SIZE][SIZE]) {
     int visible[SIZE];
-    int updated; // now we don't need visited
+    int updated; // a flag for earlier return
 
     for (int i=0; i<SIZE; i++) {
         visible[i] = 0x7fffffff;
@@ -67,7 +67,7 @@ int BF(int src, int dst, int A[SIZE][SIZE]) {
 
         updated = 0;
 
-        // for each visible node if we see any improvement, update it
+        // for each visible node if we see a shorter path to it's neighbors, update.
         for (int i=0; i<SIZE; i++) {
             if (visible[i] == 0x7fffffff)
                 continue;
